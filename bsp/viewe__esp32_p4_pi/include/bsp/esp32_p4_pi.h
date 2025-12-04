@@ -1,12 +1,12 @@
 /*
- * SPDX-FileCopyrightText: 2024 Espressif Systems (Shanghai) CO LTD
+ * SPDX-FileCopyrightText: 2025 VIEWE TECHNOLOGY CO.,LTD
  *
  * SPDX-License-Identifier: Apache-2.0
  */
 
 /**
  * @file
- * @brief ESP BSP: ESP32-P4 Function EV Board
+ * @brief ESP BSP: ESP32-P4-Pi
  */
 
 #pragma once
@@ -56,18 +56,11 @@
 
 
 /* Display */
-#if CONFIG_BSP_LCD_TYPE_1024_600
 #define BSP_LCD_BACKLIGHT     (GPIO_NUM_23)
 #define BSP_LCD_RST           (GPIO_NUM_22)
 #define BSP_LCD_TOUCH_RST     (GPIO_NUM_NC)
 #define BSP_LCD_TOUCH_INT     (GPIO_NUM_NC)
-#define DISPLAY_JD9165        (0)
-#else
-#define BSP_LCD_BACKLIGHT     (GPIO_NUM_23)
-#define BSP_LCD_RST           (GPIO_NUM_NC)
-#define BSP_LCD_TOUCH_RST     (GPIO_NUM_NC)
-#define BSP_LCD_TOUCH_INT     (GPIO_NUM_NC)
-#endif
+
 
 /* uSD card */
 #define BSP_SD_D0             (GPIO_NUM_39)
