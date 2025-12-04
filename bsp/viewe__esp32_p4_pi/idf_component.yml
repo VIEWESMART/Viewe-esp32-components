@@ -11,13 +11,10 @@ dependencies:
   idf: '>=5.3'
   lvgl/lvgl: '>=8,<10'
 description: Board Support Package (BSP) for ESP32-P4-Pi
-repository: git://github.com/espressif/esp-bsp.git
-repository_info:
-  commit_sha: 0064ab931c38699fc993ee161713ac1d1c0943a5
-  path: bsp/esp32_p4_pi
+repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
 tags:
 - bsp
 targets:
 - esp32p4
 url: https://github.com/VIEWESMART/ESP32-P4-Pi
-version: 4.1.1
+version: 1.0.0
