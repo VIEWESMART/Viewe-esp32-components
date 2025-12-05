@@ -19,4 +19,4 @@ tags:
 targets:
 - esp32p4
 url: https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/bsp/viewe_esp32_p4_pi
-version: "0.0.1"
+
