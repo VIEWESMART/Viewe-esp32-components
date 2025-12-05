@@ -1,6 +1,6 @@
 # BSP: ESP32-P4-Pi
 
-[![Component Registry]()]()
+
 
 ESP32-P4 Function EV Board is internal Espressif board for testing features on ESP32P4 chip.
 
