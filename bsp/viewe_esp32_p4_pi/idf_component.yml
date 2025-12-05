@@ -12,6 +12,8 @@ dependencies:
   lvgl/lvgl: '>=8,<10'
 description: Board Support Package (BSP) for ESP32-P4-Pi
 repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
+repository_info:
+  path: "bsp/viewe_esp32_p4_pi"
 tags:
 - bsp
 targets:
