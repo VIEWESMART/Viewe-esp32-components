@@ -4,5 +4,5 @@ idf_component_register(
     INCLUDE_DIRS "include"
     PRIV_INCLUDE_DIRS "priv_include"
     REQUIRES driver
-    PRIV_REQUIRES esp_lcd usb spiffs fatfs espressif__esp_lcd_jd9165
+    PRIV_REQUIRES esp_lcd usb spiffs fatfs
 )
