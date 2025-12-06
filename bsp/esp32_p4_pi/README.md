@@ -1,6 +1,6 @@
 # BSP: ESP32-P4-Pi
 
-
+[![Component Registry](https://components.espressif.com/components/viewesmart/esp32_p4_pi/badge.svg)](https://components.espressif.com/components/viewesmart/esp32_p4_pi)
 
 ESP32-P4 Function EV Board is internal Espressif board for testing features on ESP32P4 chip.
 
