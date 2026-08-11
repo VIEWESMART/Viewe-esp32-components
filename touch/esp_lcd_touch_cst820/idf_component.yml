@@ -1,0 +1,12 @@
+version: "1.0.0"
+description: "ESP LCD Touch CST820 - touch controller CST820"
+license: "Apache-2.0"
+tags:
+  - touch
+  - lcd
+  - cst820
+dependencies:
+  idf: ">=4.4.2"
+  espressif/esp_lcd_touch:
+    version: "^1.0.4"
+    public: true
