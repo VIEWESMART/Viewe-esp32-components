@@ -1,12 +1,16 @@
-version: "1.0.0"
+version: "1.0.2"
 description: "ESP LCD Touch CST820 - touch controller CST820"
+url: "https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/touch/esp_lcd_touch_cst820"
+repository: "https://github.com/VIEWESMART/Viewe-esp32-components.git"
+repository_info:
+  path: "touch/esp_lcd_touch_cst820"
 license: "Apache-2.0"
 tags:
   - touch
   - lcd
   - cst820
 dependencies:
-  idf: ">=4.4.2"
+  idf: ">=5.0"
   espressif/esp_lcd_touch:
     version: "^1.0.4"
     public: true

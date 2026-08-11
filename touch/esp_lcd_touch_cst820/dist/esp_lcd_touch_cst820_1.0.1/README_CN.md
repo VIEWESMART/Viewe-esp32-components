@@ -10,13 +10,17 @@
 | :--------: | :------: | :----------------: | :------------------------------------------------------------------------: |
 |   CST820   |   I2C    | esp_lcd_touch_cst820 | [datasheet](https://github.com/kodediy/esp_lcd_touch_cst820/blob/main/CST820_Datasheet_V1.2.pdf) |
 
+> [!NOTE]
+> * CST820 可能仅在触摸事件（IRQ）后响应 I2C。初始化阶段不宜依赖芯片应答；本驱动在初始化时不读取芯片 ID。
+> * `ESP_LCD_TOUCH_IO_I2C_CST820_CONFIG()` 不设置 `scl_speed_hz`，以便兼容 legacy `driver/i2c.h` + `esp_lcd_new_panel_io_i2c()`。若使用新版 I2C master 驱动，请在创建 I2C 总线时配置时钟。
+
 ## 添加到工程
 
 组件可上传至 [乐鑫组件服务](https://components.espressif.com/)。
 可通过 `idf.py add-dependency` 添加，例如：
 
 ```
-idf.py add-dependency "viewesmart/esp_lcd_touch_cst820^1.0.2"
+idf.py add-dependency "viewesmart/esp_lcd_touch_cst820^1.0.0"
 ```
 
 也可编写 `idf_component.yml`。详见 [ESP-IDF 文档](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/tools/idf-component-manager.html)。
@@ -45,26 +49,10 @@ static void touch_callback(esp_lcd_touch_handle_t tp)
 }
 ```
 
-初始化 I2C master 总线与触摸 Panel IO：
+初始化触摸组件：
 
 ```c
-#include "driver/i2c_master.h"
-#include "esp_lcd_touch_cst820.h"
-
-i2c_master_bus_handle_t i2c_bus = NULL;
-const i2c_master_bus_config_t i2c_bus_conf = {
-    .clk_source = I2C_CLK_SRC_DEFAULT,
-    .i2c_port = I2C_NUM_0,
-    .sda_io_num = CONFIG_LCD_TOUCH_SDA,
-    .scl_io_num = CONFIG_LCD_TOUCH_SCL,
-    .glitch_ignore_cnt = 7,
-    .flags.enable_internal_pullup = true,
-};
-ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_bus_conf, &i2c_bus));
-
-esp_lcd_panel_io_handle_t tp_io_handle = NULL;
-esp_lcd_panel_io_i2c_config_t tp_io_config = ESP_LCD_TOUCH_IO_I2C_CST820_CONFIG();
-ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c(i2c_bus, &tp_io_config, &tp_io_handle));
+esp_lcd_panel_io_i2c_config_t io_config = ESP_LCD_TOUCH_IO_I2C_CST820_CONFIG();
 
 esp_lcd_touch_config_t tp_cfg = {
     .x_max = CONFIG_LCD_HRES,
@@ -84,7 +72,7 @@ esp_lcd_touch_config_t tp_cfg = {
 };
 
 esp_lcd_touch_handle_t tp;
-ESP_ERROR_CHECK(esp_lcd_touch_new_i2c_cst820(tp_io_handle, &tp_cfg, &tp));
+esp_lcd_touch_new_i2c_cst820(tp_io_handle, &tp_cfg, &tp);
 ```
 
 轮询读取触摸数据（或在 IRQ 后读取）：
