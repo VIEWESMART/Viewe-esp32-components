@@ -1,4 +1,4 @@
-version: "1.0.2"
+version: "1.0.3"
 description: "ESP LCD Touch CST820 - touch controller CST820"
 url: "https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/touch/esp_lcd_touch_cst820"
 repository: "https://github.com/VIEWESMART/Viewe-esp32-components.git"
