@@ -1,5 +1,9 @@
-version: "1.0.0"
-description: "BSP for UEDX46460015-MD50E 1.5\" round AMOLED knob (CO5300 QSPI, CST820, LVGL 8/9, encoder, button)"
+version: "1.0.1"
+description: "BSP for UEDX46460015-MD50ET 1.5\" round AMOLED knob (CO5300 QSPI, CST820, LVGL 8/9, encoder, button)"
+url: "https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/bsp/bsp_knob_15_md50et"
+repository: "https://github.com/VIEWESMART/Viewe-esp32-components.git"
+repository_info:
+  path: "bsp/bsp_knob_15_md50et"
 license: "Apache-2.0"
 targets:
   - esp32s3
@@ -14,7 +18,7 @@ tags:
 dependencies:
   idf: ">=5.5"
   espressif/esp_lcd_co5300: "^2.1.0"
-  espressif/esp_lvgl_adapter: "*"
+  espressif/esp_lvgl_adapter: "^0.6.3"
   viewesmart/esp_lcd_touch_cst820: "^1.0.3"
   # App selects LVGL major (^8 or ^9) in its own idf_component.yml
   lvgl/lvgl:

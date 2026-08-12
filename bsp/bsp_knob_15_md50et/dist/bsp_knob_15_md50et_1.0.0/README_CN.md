@@ -35,7 +35,7 @@
 | 可用 | 能力 | 控制器 | 组件 | 版本 |
 | :--: | ---- | ------ | ---- | ---- |
 | :heavy_check_mark: | DISPLAY | CO5300 | [espressif/esp_lcd_co5300](https://components.espressif.com/components/espressif/esp_lcd_co5300) | ^2.1.0 |
-| :heavy_check_mark: | LVGL_PORT | | [espressif/esp_lvgl_adapter](https://components.espressif.com/components/espressif/esp_lvgl_adapter) | ^0.6.3 |
+| :heavy_check_mark: | LVGL_PORT | | [espressif/esp_lvgl_adapter](https://components.espressif.com/components/espressif/esp_lvgl_adapter) | * |
 | :heavy_check_mark: | TOUCH | CST820 | [viewesmart/esp_lcd_touch_cst820](https://components.espressif.com/components/viewesmart/esp_lcd_touch_cst820) | ^1.0.3 |
 | :heavy_check_mark: | BUTTONS | | [espressif/button](https://components.espressif.com/components/espressif/button) | ^3.3.1 |
 | :heavy_check_mark: | KNOB | | [espressif/knob](https://components.espressif.com/components/espressif/knob) | ^1.0.0 |
