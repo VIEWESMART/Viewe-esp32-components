@@ -1,0 +1,61 @@
+menu "Board Support Package (UEDX48480040E-WB-A)"
+
+    config BSP_ERROR_CHECK
+        bool "Enable error check in BSP"
+        default n
+        help
+            Error check asserts the application before returning the error code.
+
+    menu "I2C"
+        config BSP_I2C_NUM
+            int "I2C peripheral index"
+            default 0
+            range 0 1
+            help
+                I2C port used by the FT5x06 touch controller.
+
+        config BSP_I2C_CLK_SPEED_HZ
+            int "I2C clock speed (Hz)"
+            default 400000
+            help
+                I2C SCL frequency for the touch controller.
+    endmenu
+
+    menu "Display"
+        config BSP_DISPLAY_BRIGHTNESS_LEDC_CH
+            int "LEDC channel index"
+            default 0
+            range 0 7
+            help
+                LEDC channel used to PWM the LCD backlight (GPIO38).
+
+        config BSP_LCD_RGB_BUFFER_NUMS
+            int "RGB frame buffer count"
+            default 3
+            range 1 3
+            help
+                Must match esp_lv_adapter tear-avoid mode. TRIPLE_PARTIAL needs 3.
+
+        config BSP_LCD_RGB_BOUNCE_BUFFER_HEIGHT
+            int "RGB bounce buffer height (lines)"
+            default 20
+            range 1 480
+            help
+                Bounce buffer height in lines. (H_RES * V_RES) must be divisible
+                by (H_RES * this value). 20 lines reduces PSRAM contention.
+    endmenu
+
+    menu "Storage"
+        config BSP_SD_FORMAT_ON_MOUNT_FAIL
+            bool "Format SD card if mounting fails"
+            default n
+            help
+                If FAT mount fails, format the card. Destroys existing data.
+
+        config BSP_SD_MOUNT_POINT
+            string "SD card mount point"
+            default "/sdcard"
+            help
+                VFS path where the SD card FAT filesystem is mounted.
+    endmenu
+endmenu

@@ -1,0 +1,27 @@
+version: 1.0.0
+targets:
+- esp32s3
+description: Board Support Package for VIEWE UEDX48480040E-WB-A (4-inch 480x480 
+  GC9503 RGB + FT5x06)
+license: Apache-2.0
+tags:
+- bsp
+- display
+- lvgl
+- touch
+- sdcard
+dependencies:
+  idf: '>=5.5'
+  espressif/esp_lcd_gc9503: ^3
+  espressif/esp_lcd_panel_io_additions: ^1
+  espressif/esp_lcd_touch_ft5x06: ^1
+  espressif/esp_lvgl_adapter: ^0.5.3
+  lvgl/lvgl:
+    version: '>=8,<10'
+    public: true
+url: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/bsp/bsp_uedx48480040e_wb_a
+repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
+issues: https://github.com/VIEWESMART/Viewe-esp32-components/issues
+repository_info:
+  path: bsp/bsp_uedx48480040e_wb_a
