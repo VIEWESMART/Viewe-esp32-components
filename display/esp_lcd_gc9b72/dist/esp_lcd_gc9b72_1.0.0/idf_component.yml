@@ -1,0 +1,19 @@
+version: 1.0.0
+description: ESP LCD GC9B72 (SPI & QSPI)
+license: Apache-2.0
+tags:
+- lcd
+- display
+- gc9b72
+dependencies:
+  idf: '>=5.3'
+  espressif/cmake_utilities:
+    version: 0.*
+url: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/display/esp_lcd_gc9b72
+repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
+documentation: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/blob/main/display/esp_lcd_gc9b72/README.md
+issues: https://github.com/VIEWESMART/Viewe-esp32-components/issues
+repository_info:
+  path: display/esp_lcd_gc9b72

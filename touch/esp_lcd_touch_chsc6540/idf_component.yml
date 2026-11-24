@@ -1,0 +1,18 @@
+version: "1.0.0"
+description: ESP LCD Touch CHSC6540 - touch controller CHSC6540
+url: https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/touch/esp_lcd_touch_chsc6540
+repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
+repository_info:
+  path: touch/esp_lcd_touch_chsc6540
+documentation: https://github.com/VIEWESMART/Viewe-esp32-components/blob/main/touch/esp_lcd_touch_chsc6540/README.md
+issues: https://github.com/VIEWESMART/Viewe-esp32-components/issues
+license: Apache-2.0
+tags:
+  - touch
+  - lcd
+  - chsc6540
+dependencies:
+  idf: ">=5.2"
+  espressif/esp_lcd_touch:
+    version: "^1.2.0"
+    public: true

@@ -1,0 +1,42 @@
+version: 1.0.0
+targets:
+- esp32s3
+description: Board Support Package (BSP) for VIEWE UEDX80480043E-WB (4.3-inch 
+  RGB + GT911)
+license: Apache-2.0
+tags:
+- bsp
+- display
+- lvgl
+- touch
+- sdcard
+dependencies:
+  idf: '>=5.5'
+  espressif/esp_lvgl_adapter:
+    version: ^0.6
+    public: true
+  espressif/esp_lcd_touch_gt911:
+    version: ^1
+    public: true
+  espressif/button:
+    version: ^4
+    public: true
+  lvgl/lvgl:
+    version: ^9
+    public: true
+files:
+  exclude:
+  - '**/.git/**'
+  - '**/build/**'
+  - '**/dist/**'
+  - '**/.cache/**'
+  - '**/.vscode/**'
+  - '**/.clangd'
+url: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/bsp/bsp_uedx80480043_wb_a
+repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
+documentation: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/bsp/bsp_uedx80480043_wb_a
+issues: https://github.com/VIEWESMART/Viewe-esp32-components/issues
+repository_info:
+  path: bsp/bsp_uedx80480043_wb_a

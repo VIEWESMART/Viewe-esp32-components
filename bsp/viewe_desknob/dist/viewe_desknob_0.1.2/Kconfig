@@ -1,0 +1,66 @@
+menu "Viewe DeskNob"
+
+    config BSP_ERROR_CHECK
+        bool "Enable error check assert in BSP"
+        default n
+        help
+            Abort on BSP errors instead of returning esp_err_t.
+
+    config BSP_I2C_NUM
+        int "Audio codec I2C port"
+        default 0
+        range 0 1
+        help
+            ES8311 bus. Touch uses the other I2C port.
+
+    config BSP_I2C_CLK_SPEED_HZ
+        int "Audio codec I2C clock (Hz)"
+        default 400000
+        range 100000 400000
+
+    config BSP_LCD_BRIGHTNESS_LEDC_CH
+        int "Backlight LEDC channel"
+        default 1
+        range 0 7
+
+    menu "SPIFFS"
+        config BSP_SPIFFS_MOUNT_POINT
+            string "Mount point"
+            default "/spiffs"
+
+        config BSP_SPIFFS_PARTITION_LABEL
+            string "Partition label"
+            default "storage"
+
+        config BSP_SPIFFS_MAX_FILES
+            int "Max open files"
+            default 5
+    endmenu
+
+    menu "RGB LED strip"
+        comment "Data pin is GPIO61, shared with BOOT."
+
+        config BSP_LED_STRIP_COUNT
+            int "Number of LEDs"
+            default 12
+            range 1 256
+    endmenu
+
+    menu "USB"
+        comment "ESP32-S31 USB OTG is USB 2.0 High Speed on the internal UTMI PHY."
+        comment "D+ and D- are the dedicated USB_DP and USB_DM pads, not GPIO numbers."
+
+        config BSP_USB_MSC
+            bool "USB mass-storage (U-disk) driver"
+            default n
+            help
+                Expose a FAT partition as a USB 2.0 disk through TinyUSB.
+                The example partition label must match BSP_USB_MSC_PARTITION_LABEL.
+
+        config BSP_USB_MSC_PARTITION_LABEL
+            string "FAT partition label exposed as the USB disk"
+            depends on BSP_USB_MSC
+            default "udisk"
+    endmenu
+
+endmenu

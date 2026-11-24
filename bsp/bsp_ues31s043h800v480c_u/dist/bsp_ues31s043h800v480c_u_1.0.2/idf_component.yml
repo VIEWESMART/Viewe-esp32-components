@@ -1,0 +1,50 @@
+version: 1.0.2
+targets:
+- esp32s31
+description: Board Support Package (BSP) for UES31S043H800V480C-U (ESP32-S31 
+  4.3-inch 800x480)
+license: Apache-2.0
+tags:
+- bsp
+dependencies:
+  idf: '>=5.5.0'
+  espressif/esp_lcd_touch_gt911:
+    version: ^1
+    public: true
+  espressif/esp_codec_dev:
+    version: ~1.5
+    public: true
+  espressif/led_strip:
+    version: ^3
+    public: true
+  espressif/button:
+    version: '>=4.2.1'
+    public: true
+  espressif/esp_lvgl_port:
+    version: ~2.9
+    public: true
+    rules:
+    - if: $CONFIG{BSP_NO_GRAPHIC_LIB} != True
+  lvgl/lvgl:
+    version: '>=8,<10'
+    public: true
+    rules:
+    - if: $CONFIG{BSP_NO_GRAPHIC_LIB} != True
+files:
+  exclude:
+  - _gen_verify.py
+  - dist/**
+  - '**/.git/**'
+  - '**/build/**'
+  - '**/.cache/**'
+  - '**/.cursor/**'
+  - '**/.vscode/**'
+  - '**/.clangd'
+url: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/bsp/bsp_ues31s043h800v480c_u
+repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
+documentation: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/blob/main/bsp/bsp_ues31s043h800v480c_u/README.md
+issues: https://github.com/VIEWESMART/Viewe-esp32-components/issues
+repository_info:
+  path: bsp/bsp_ues31s043h800v480c_u

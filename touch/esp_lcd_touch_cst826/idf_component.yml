@@ -1,0 +1,20 @@
+version: "1.0.0"
+description: ESP LCD Touch CST826 - touch controller CST826
+url: https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/touch/esp_lcd_touch_cst826
+repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
+repository_info:
+  path: touch/esp_lcd_touch_cst826
+documentation: https://github.com/VIEWESMART/Viewe-esp32-components/blob/main/touch/esp_lcd_touch_cst826/README.md
+issues: https://github.com/VIEWESMART/Viewe-esp32-components/issues
+license: Apache-2.0
+tags:
+  - touch
+  - lcd
+  - cst826
+dependencies:
+  idf: ">=5.3"
+  espressif/esp_lcd_touch:
+    version: "^1.0.4"
+    public: true
+  espressif/cmake_utilities:
+    version: "0.*"

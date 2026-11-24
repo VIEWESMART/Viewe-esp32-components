@@ -1,0 +1,53 @@
+version: 0.1.2
+targets:
+- esp32s31
+description: Board Support Package for VIEWE DeskNob (ESP32-S31, 2.1 inch round 
+  knob display)
+license: Apache-2.0
+tags:
+- bsp
+dependencies:
+  idf: '>=6.1.0'
+  espressif/esp_lvgl_adapter:
+    version: ^0.5.0
+    public: true
+  espressif/button:
+    version: ^4
+    public: true
+  espressif/esp_codec_dev:
+    version: ~1.5
+    public: true
+  espressif/esp_lcd_touch:
+    version: ^1
+    public: true
+  espressif/led_strip:
+    version: ^3
+    public: true
+  viewesmart/esp_lcd_gc9b72:
+    version: ^1.0.0
+    public: true
+  viewesmart/esp_lcd_touch_cst826:
+    version: ^1.0.0
+    public: true
+  espressif/esp_tinyusb:
+    version: ^2.0.1
+    matches:
+    - if: $CONFIG{BSP_USB_MSC} == True
+files:
+  exclude:
+  - dist/**
+  - '**/.git/**'
+  - '**/build/**'
+  - '**/managed_components/**'
+  - '**/.cache/**'
+  - '**/.cursor/**'
+  - '**/.vscode/**'
+  - '**/.clangd'
+url: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/tree/main/bsp/viewe_desknob
+repository: https://github.com/VIEWESMART/Viewe-esp32-components.git
+documentation: 
+  https://github.com/VIEWESMART/Viewe-esp32-components/blob/main/bsp/viewe_desknob/README.md
+issues: https://github.com/VIEWESMART/Viewe-esp32-components/issues
+repository_info:
+  path: bsp/viewe_desknob

@@ -1,0 +1,10 @@
+menu "ESP LCD TOUCH - CHSC6540"
+
+    config ESP_LCD_TOUCH_CHSC6540_DISABLE_READ_ID
+        bool "Disable reading chip ID during init"
+        default n
+        help
+            Some CHSC6540 modules may fail I2C ID read before the first touch event.
+            Enable this option to skip reading register 0xA7 during initialization.
+
+endmenu

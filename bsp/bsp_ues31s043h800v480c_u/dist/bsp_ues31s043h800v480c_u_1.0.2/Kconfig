@@ -1,0 +1,82 @@
+menu "Board Support Package (UES31S043H800V480C-U)"
+
+    config BSP_ERROR_CHECK
+        bool "Enable error check in BSP"
+        default y
+        help
+            Assert on BSP error instead of returning the error code.
+
+    menu "I2C"
+        config BSP_I2C_NUM
+            int "I2C peripheral index"
+            default 0
+            range 0 1
+
+        config BSP_I2C_CLK_SPEED_HZ
+            int "I2C clock speed (Hz)"
+            default 400000
+    endmenu
+
+    config BSP_I2S_NUM
+        int "I2S peripheral index"
+        default 0
+        range 0 1
+
+    menu "SD card"
+        config BSP_SD_FORMAT_ON_MOUNT_FAIL
+            bool "Format SD card if mounting fails"
+            default n
+
+        config BSP_SD_MOUNT_POINT
+            string "SD card mount point"
+            default "/sdcard"
+    endmenu
+
+    config BSP_NO_GRAPHIC_LIB
+        bool "Build BSP without LVGL"
+        default n
+        help
+            Keep hardware LCD/touch APIs only (bsp_display_new / bsp_touch_new).
+            Leave this off to ship LVGL through esp_lvgl_port and call
+            bsp_display_start() / bsp_display_lock() from the application.
+
+    config BSP_LCD_DRAW_BUF_HEIGHT
+        int "LVGL draw buffer height (lines)"
+        default 40
+        range 10 80
+        depends on !BSP_NO_GRAPHIC_LIB
+        help
+            Used only if the RGB panel was opened with a single framebuffer.
+            The locked path uses 2 framebuffers and direct mode instead.
+            Half-screen partial buffers starve the RGB bounce ISR.
+
+    config BSP_LCD_DRAW_BUF_DOUBLE
+        bool "Allocate two LVGL draw buffers"
+        default y
+        depends on !BSP_NO_GRAPHIC_LIB
+
+    menu "Display backlight PWM"
+        config BSP_DISPLAY_BRIGHTNESS_LEDC_TIMER
+            int "LEDC timer index for backlight"
+            default 1
+            range 0 3
+
+        config BSP_DISPLAY_BRIGHTNESS_LEDC_CH
+            int "LEDC channel index for backlight"
+            default 1
+            range 0 7
+    endmenu
+
+    menu "Buzzer PWM"
+        config BSP_BUZZER_LEDC_TIMER
+            int "LEDC timer index for buzzer"
+            default 0
+            range 0 3
+
+        config BSP_BUZZER_LEDC_CH
+            int "LEDC channel index for buzzer"
+            default 0
+            range 0 7
+    endmenu
+
+endmenu
